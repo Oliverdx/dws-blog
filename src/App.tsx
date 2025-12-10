@@ -1,19 +1,20 @@
-import { useFetchPosts } from '@/hooks/useFetchPosts';
+import AppLayout from '@/components/Layout/AppLayout';
 
-import './App.css'
+import { useFetchPosts } from '@/hooks/useFetchPosts';
 
 function App() {
 
   const { posts , loading, error } = useFetchPosts();
 
-  if (loading) return <p>Loading...</p>;
   if (error) return <p>{error}</p>;
 
   console.log('Posts: ', posts);
 
   return (
-    <main>
-    </main>
+    <AppLayout>
+      {loading ? <>Loading...</> : <>
+      </>}
+    </AppLayout>
   );
 }
 

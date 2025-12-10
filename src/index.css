@@ -1,39 +1,76 @@
 :root {
+  --neutral-extralight: #E0E2E6;
+  --neutral-light: #C0C2C8;
+  --neutral-medium: #9EA0A5;
+  --neutral-dark: #7F8185;
+  --neutral-darkest: #202122;
+  --primary-light: #0B0E3A;
+  --primary-medium: #060725;
+  --primary-dark: #020318;
+  --secondary-light: #EF4C84;
+  --secondary-medium: #D31450;
+  --secondary-dark: #9C1038;
+  --accent-light: #00BFC1;
+  --accent-medium: #009598;
+  --accent-dark: #006C6E;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  width: auto;
 }
 
 a {
   font-weight: 500;
-  color: #646cff;
+  color: var(--neautral-darkest);
   text-decoration: inherit;
 }
+
 a:hover {
-  color: #535bf2;
+  color: var(--neautral-dark);
 }
 
 body {
   font-family: 'Open Sans', Helvetica, sans-serif;
   margin: 0;
-  display: flex;
-  place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  color: var(--neautral-darkest);
+  background: radial-gradient(circle at 100% 15%, rgb(from var(--secondary-light) r g b / 0.3) 0%, transparent 30%),
+  radial-gradient(circle at 0% 50%, rgb(from var(--accent-light) r g b / 0.2) 0%, transparent 30%),
+  radial-gradient(circle at 80% 80%, #A4B2D5 0%, transparent 30%);
 }
 
-h1, h2, h3{
+h1,
+h2,
+h3 {
   line-height: 130%;
   font-weight: 700;
 }
 
-h1{font-size: 3.5rem;}
+h1 {
+  font-size: 3.5rem;
+}
 
-h2{font-size: 2.25rem;}
+h2 {
+  font-size: 2.25rem;
+}
 
-h3{font-size: 1.25rem}
+h3 {
+  font-size: 1.25rem
+}
 
-b{font-weight: 600;}
+b {
+  font-weight: 600;
+}
 
-@media screen and (min-width: 1280px){
-  *{
+.wrapper {
+  width: 90%;
+}
+
+@media screen and (min-width: 1280px) {
+  * {
     font-size: 1rem;
   }
 }
