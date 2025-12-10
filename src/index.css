@@ -1,0 +1,39 @@
+:root {
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+body {
+  font-family: 'Open Sans', Helvetica, sans-serif;
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+h1, h2, h3{
+  line-height: 130%;
+  font-weight: 700;
+}
+
+h1{font-size: 3.5rem;}
+
+h2{font-size: 2.25rem;}
+
+h3{font-size: 1.25rem}
+
+b{font-weight: 600;}
+
+@media screen and (min-width: 1280px){
+  *{
+    font-size: 1rem;
+  }
+}
