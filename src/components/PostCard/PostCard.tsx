@@ -35,7 +35,8 @@ const PostCard = memo(({ data }: { data: Post }) => {
         <p className={styles.cardContentText}>{content}</p>
       </div>
       <div>
-        {categories?.map(category => <Button variant="category">
+        {categories?.map(category => 
+        <Button key={category.id} variant="category">
           {category.name}
         </Button>)}
       </div>
