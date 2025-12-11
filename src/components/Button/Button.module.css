@@ -14,7 +14,7 @@
 
 .secondary{
   padding: 12px 16px;
-  box-sizing: border-box;
+  box-sizing: content-box;
   font-weight: 600;
   border-radius: 42px;
   background: none;
@@ -43,5 +43,15 @@
   &:hover{
     cursor: pointer;
     background: var(--secondary-dark);
+  }
+}
+
+.sort{
+  background: transparent;
+  color: var(--neutral-extradark);
+
+  &:hover{
+    background-color: var(--accent-medium);
+    color: var(--neutral-extralight);
   }
 }

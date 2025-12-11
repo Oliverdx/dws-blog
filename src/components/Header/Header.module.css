@@ -1,16 +1,18 @@
 .header {
   width: 100vw;
-  height: 64px;
+  height: 32px;
   border-bottom: 1px solid var(--neutral-extralight);
   display: flex;
   justify-content: center;
   padding: 24px 0;
+  margin-bottom: 16px;
 }
 
 .headerWrapper{
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: relative;
 
   img{
     width: 50%;
@@ -19,13 +21,18 @@
 }
 
 .searchWrapper{
-  display: block;
+  display: flex;
   width: 40px;
   height: 40px;
-  border-radius: 100%;
+  border-radius: 32px;
+  padding: 0 8px 8px 16px;
+  box-sizing: border-box;
   border: 1px solid var(--neutral-extralight);
   color: var(--neutral-extradark);
   outline: none;
+  transition: 300ms ease all;
+  position: relative;
+  right: 0;
 
   &:hover{
     border-color: var(--accent-medium);
@@ -36,7 +43,51 @@
   }
 }
 
+.searchOpen{
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 40px;
+  background: white;
+  border: 1px solid var(--accent-medium);
+  position: absolute;
+  z-index: 2;
+
+  .searchInput{
+    display: block;
+
+    &:focus:placeholder{
+      display: none;
+    }
+  }
+}
+
+.searchInput{
+  margin-top:8px;
+  width: 100%;
+  height: 40px;
+  display: none;
+  border: none;
+  background: none;
+  outline: none;
+}
+
 .searchIcon{
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: var(--primary-light);
   color: var(--neutral-lightest);
+  position: absolute;
+  top: 50%;
+  right: 0%;
+  transform: translate(0, -20px);
+
+  svg{
+    width: 20px;
+    height: 20px;
+  }
 }

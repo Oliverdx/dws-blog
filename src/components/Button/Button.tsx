@@ -1,7 +1,7 @@
 import { memo } from "react";
 import styles from "./Button.module.css";
 
-type ButtonVariant = "primary" | "secondary" | "category";
+type ButtonVariant = "primary" | "secondary" | "category" | "sort";
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: ButtonVariant;
