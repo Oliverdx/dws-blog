@@ -1,6 +1,9 @@
 import AppLayout from '@/components/Layout/AppLayout';
 
 import { useFetchPosts } from '@/hooks/useFetchPosts';
+import PostCard from './components/PostCard/PostCard';
+
+import type { Post } from "@/types/Post";
 
 function App() {
 
@@ -12,8 +15,10 @@ function App() {
 
   return (
     <AppLayout>
-      {loading ? <>Loading...</> : <>
-      </>}
+      {loading ? <>Loading...</> : <div className={`wrapper`}
+      style={{display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 10}}>
+        {posts?.map((post: Post) => <PostCard key={post.id} data={post} />)}
+      </div>}
     </AppLayout>
   );
 }

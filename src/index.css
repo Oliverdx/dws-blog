@@ -32,14 +32,14 @@ a:hover {
 }
 
 body {
-  font-family: 'Open Sans', Helvetica, sans-serif;
+  font-family: "Open Sans", serif;
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
   color: var(--neautral-darkest);
-  background: radial-gradient(circle at 100% 15%, rgb(from var(--secondary-light) r g b / 0.3) 0%, transparent 30%),
+  /* background: radial-gradient(circle at 100% 15%, rgb(from var(--secondary-light) r g b / 0.3) 0%, transparent 30%),
   radial-gradient(circle at 0% 50%, rgb(from var(--accent-light) r g b / 0.2) 0%, transparent 30%),
-  radial-gradient(circle at 80% 80%, #A4B2D5 0%, transparent 30%);
+  radial-gradient(circle at 80% 80%, #A4B2D5 0%, transparent 30%); */
 }
 
 h1,
@@ -67,10 +67,63 @@ b {
 
 .wrapper {
   width: 90%;
+  margin: 0 auto;
 }
+
+/* Open Sans – Regular 400 */
+@font-face {
+  font-family: "Open Sans";
+  src: url("/fonts/OpenSans-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Open Sans – SemiBold 600 */
+@font-face {
+  font-family: "Open Sans";
+  src: url("/fonts/OpenSans-Semibold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Open Sans – SemiBold Italic 600 */
+@font-face {
+  font-family: "Open Sans";
+  src: url("/fonts/OpenSans-SemiBoldItalic.ttf") format("truetype");
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Open Sans – Bold 700 */
+@font-face {
+  font-family: "Open Sans";
+  src: url("/fonts/OpenSans-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Open Sans – Bold Italic 700 */
+@font-face {
+  font-family: "Open Sans";
+  src: url("/fonts/OpenSans-BoldItalic.ttf") format("truetype");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
 
 @media screen and (min-width: 1280px) {
   * {
     font-size: 1rem;
+  }
+
+  body{
+      background: radial-gradient(circle at 100% 15%, rgb(from var(--secondary-light) r g b / 0.3) 0%, transparent 30%),
+  radial-gradient(circle at 0% 50%, rgb(from var(--accent-light) r g b / 0.2) 0%, transparent 30%),
+  radial-gradient(circle at 80% 80%, #A4B2D5 0%, transparent 30%);
   }
 }
