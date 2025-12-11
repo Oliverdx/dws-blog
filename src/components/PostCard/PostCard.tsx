@@ -2,6 +2,7 @@ import type { Post } from "@/types/Post";
 import { useMemo, memo } from "react";
 
 import styles from './PostCard.module.css';
+import Button from "../Button/Button";
 
 const PostCard = memo(({ data }: { data: Post }) => {
   const {
@@ -34,7 +35,9 @@ const PostCard = memo(({ data }: { data: Post }) => {
         <p className={styles.cardContentText}>{content}</p>
       </div>
       <div>
-        {categories.map(category => <span>{category.name}</span>)}
+        {categories?.map(category => <Button variant="category">
+          {category.name}
+        </Button>)}
       </div>
     </div>
   </div>

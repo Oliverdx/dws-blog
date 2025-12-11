@@ -1,0 +1,20 @@
+.primary{
+
+}
+
+.secondary{
+  
+}
+
+.category{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 84px;
+  height: 32px;
+  padding: 8px 12px;
+  border-radius: 42px;
+  font-size: 0.75rem;
+  background: var(--neutral-extralight);
+  font-family: "Open Sans", sans-serif;
+}

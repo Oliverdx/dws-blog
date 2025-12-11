@@ -1,4 +1,5 @@
 :root {
+  --neutral-lightest: #F0F0F2;
   --neutral-extralight: #E0E2E6;
   --neutral-light: #C0C2C8;
   --neutral-medium: #9EA0A5;
@@ -63,6 +64,11 @@ h3 {
 
 b {
   font-weight: 600;
+}
+
+button{
+  border: none;
+  appearance: none;
 }
 
 .wrapper {
