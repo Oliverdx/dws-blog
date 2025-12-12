@@ -5,17 +5,20 @@ import type { filterBy } from "@/services/getFilterList";
 import FilterList from "@/components/FilterList/FilterList";
 import Button from "@/components/Button/Button";
 
+import useFilter from "@/hooks/useFilter";
+
 import SortIcon from "@/assets/SortIcon";
 import DownArrowIcon from "@/assets/DownArrowIcon";
 
 import styles from "./ActionBar.module.css";
-import useFilter from "@/hooks/useFilter";
 
 const ActionBar = () => {
   const [filter, setFilter] = useState<filterBy | null>(null);
   const {
     selectedAuthor,
-    selectedCategory
+    selectedCategory,
+    sortBy,
+    setSort
   } = useFilter();
 
   const toggleFilterDropdown = (type: filterBy) => {
@@ -23,6 +26,14 @@ const ActionBar = () => {
       setFilter(null);
     else
       setFilter(type)
+  }
+
+  const toggleSort = () => {
+
+    if(sortBy === "newest")
+      setSort("oldest");
+    else
+      setSort('newest');
   }
 
   return <div className={styles.actionBar}>
@@ -42,8 +53,8 @@ const ActionBar = () => {
     </div>
     <div className={styles.rightActions}>
       <b className={styles.mobileHide}>Sort by: </b>
-      <Button variant="sort" className={styles.sortButton}>
-        <span>Newest First</span>
+      <Button variant="sort" className={styles.sortButton} onClick={toggleSort}>
+        <span>{sortBy.slice(0, 1).toLocaleUpperCase() + sortBy.slice(1, sortBy.length)} First</span>
         <SortIcon />
       </Button>
     </div>
