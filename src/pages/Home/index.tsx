@@ -18,8 +18,8 @@ const Home = memo(() => {
       style={{display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 10}}>
         <ActionBar />
         {posts?.map((post: Post) => 
-        <Link to={`post/${post.id}`}>
-          <PostCard key={post.id} data={post} />
+        <Link to={`post/${post.id}`} key={post.id}>
+          <PostCard data={post} />
         </Link>)}
       </div>}
     </AppLayout>

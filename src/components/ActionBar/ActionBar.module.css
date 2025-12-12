@@ -1,15 +1,15 @@
-.actionBar{
+.actionBar {
   display: flex;
   width: 314px;
   justify-content: space-between;
   align-items: center;
 }
 
-.leftActions{
+.leftActions {
   display: flex;
   gap: 4px;
-  
-  button{
+
+  button {
     font-size: 0.75rem;
     height: 32px;
     padding: 12px 12px 12px 16px;
@@ -17,34 +17,46 @@
     display: flex;
     align-items: center;
 
-    svg{
+    svg {
       width: 24px;
     }
   }
 }
 
-.sortButton{
-  background: var(--accent-medium);
-  color: var(--neutral-extralight);
+.sortButton {
+  background: transparent;
+  color: var(--neutral-extradark);
   border-radius: 32px;
   font-size: 0.75rem;
   display: flex;
   align-items: center;
   gap: 8px;
   padding: 8px;
+  transition: ease 300ms all;
 
-  svg{
+  svg {
     height: 15px;
-    color: var(--neutral-extralight)
+    color: var(--accent-medium);
+  }
+
+  &:hover {
+    background: var(--accent-medium);
+    color: var(--neutral-extralight);
+
+    svg {
+      height: 15px;
+      color: var(--neutral-extralight);
+    }
+
   }
 }
 
-.mobileHide{
+.mobileHide {
   display: none;
 }
 
-@media screen and (min-width: 1019px){
-  .mobileHide{
+@media screen and (min-width: 1019px) {
+  .mobileHide {
     display: block;
   }
 }
