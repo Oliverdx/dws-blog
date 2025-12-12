@@ -1,13 +1,17 @@
-import Search from '@/assets/SearchIcon';
-import styles from './Header.module.css';
 import { useState } from 'react';
+
+import Search from '@/assets/SearchIcon';
+
+import styles from './Header.module.css';
 
 const Header = () => {
   const [searchOpen, setSearchOpen] = useState(false);
 
   const searchAction = () => {
     if(searchOpen){
-      //Do the search
+      //For the future
+      //Do the search using context
+      alert('Sorry, search is not available yet!')
     }
     setSearchOpen((prev: boolean) => !prev);
   }
