@@ -58,7 +58,42 @@
 }
 
 @media screen and (min-width: 1019px) {
+  .actionBar {
+    width: 100%;
+    margin-bottom: 40px;
+  }
+}
+
+@media screen and (min-width: 1365px){
   .mobileHide {
     display: block;
+  }
+
+  .filterBtn {
+    display: none;
+  }
+
+  .actionBar {
+    width: 100%;
+    margin: 20px 0 40px;
+  }
+
+  .leftActions{
+    display: flex;
+    align-items: center;
+  }
+
+  .rightActions {
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+
+    b {
+      color: var(--neutral-extradark);
+    }
+  }
+
+  .sortButton {
+    font-size: 1rem;
   }
 }

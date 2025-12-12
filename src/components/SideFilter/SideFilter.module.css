@@ -1,0 +1,46 @@
+.sidebarWrapper{
+  display: none;
+}
+
+@media screen and (min-width: 1366px){ /* DESKTOP */
+  .sidebarWrapper{
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+    background: white;
+    border: 1px solid var(--neutral-lightest);
+    border-radius: 16px;
+    padding: 16px;
+  }
+
+  .sidebarTitle{
+    display: flex;
+    align-items: center;
+    font-size: 1.75rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+
+    svg{
+      margin-right: 10px;
+    }
+  }
+
+  .filterTitle{
+    font-size: 1.25rem;
+    font-weight: 600;
+  }
+
+  .filterList{
+    list-style: none;
+    margin-bottom: 20px;
+  }
+
+  .filterItem{
+    width: 100%;
+    display: flex; 
+    box-sizing: border-box;
+    padding: 16px 12px 12px 12px;
+    font-weight: 300;
+    border-bottom: 1px solid var(--neutral-lightest)
+  }
+}

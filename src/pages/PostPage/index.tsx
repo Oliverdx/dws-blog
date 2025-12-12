@@ -13,13 +13,13 @@ function PostPage() {
   const { id = "" } = useParams();
   const navigate = useNavigate();
   const { post, loading, error } = useFetchSinglePost(id);
-  const { posts: relatedPosts, error: relatedError } = useFetchPosts(3);
+  const { posts: latestPosts, error: latestPostsErr } = useFetchPosts(3);
 
   if (error) return <p>{error}</p>;
 
   return (
     <AppLayout>
-      <div className="wrapper">
+      <div className={styles.postWrapper}>
         <Button
           onClick={() => navigate(-1)}
           variant="secondary"
@@ -45,9 +45,14 @@ function PostPage() {
             </div>
           </div>}
       </div>
-      {!relatedError && <div className={`${styles.latestPosts} wrapper`}>
-        {relatedPosts?.map(post => 
+      {!latestPostsErr && <div className={`${styles.latestPosts}`}>
+        <h2 className={styles.latestPostTitle}>
+          articles
+        </h2>
+        <div className={styles.latestPostList}>
+          {latestPosts?.map(post => 
           <PostCard key={post.id} data={post} />)}
+        </div>
       </div>}
     </AppLayout>
   );

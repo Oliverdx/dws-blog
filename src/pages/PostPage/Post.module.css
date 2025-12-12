@@ -1,24 +1,31 @@
-.backButton{
+.postWrapper,
+.latestPosts {
+  width: 90%;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.backButton {
   display: flex;
   align-items: center;
 }
 
-.postHeader{
+.postHeader {
   margin-top: 20px;
 }
 
-.postAuthor{
+.postAuthor {
   display: flex;
   align-items: center;
   margin-top: 10px;
   gap: 10px;
 
-  img{
+  img {
     width: 70px;
     height: 70px;
   }
 
-  span{
+  span {
     display: block;
     color: var(--neutral-medium);
     margin-top: 5px;
@@ -26,18 +33,62 @@
 }
 
 
-.postContent{
+.postContent {
   margin-bottom: 32px;
+  text-align: justify;
 }
 
-.postThumbnail{
+.postThumbnail {
   width: 314px;
   height: 196px;
   border-radius: 16px;
   margin: 32px 0;
 }
 
-.latestPosts{
+.latestPosts {
+  border-top: 1px solid var(--neutral-light);
+}
+
+.latestPostTitle {
+  margin: 30px 0 20px;
+  font-weight: 600;
+}
+
+.latestPostTitle:before {
+  content: "Last "
+}
+
+.latestPostList {
   display: grid;
   grid-gap: 15px;
+}
+
+@media screen and (min-width: 479px) {
+  .postThumbnail {
+    width: 100%;
+    height: auto;
+    max-height: 400px;
+    aspect-ratio: 16 / 9;
+  }
+}
+
+@media screen and (min-width: 1366px) {
+  .postWrapper {
+    width: 100%;
+    max-width: 900px;
+  }
+
+  .latestPostTitle:before {
+    content: "Lastest "
+  }
+
+  .latestPosts {
+    border-top: 1px solid var(--neutral-light);
+  }
+
+  .latestPostList {
+    display: grid;
+    grid-template-columns: repeat(3, 314px);
+    margin-top: 20px;
+  }
 }

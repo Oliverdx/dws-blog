@@ -43,7 +43,7 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
-  color: var(--neautral-extradark);
+  color: var(--primary-dark)
   /* background: radial-gradient(circle at 100% 15%, rgb(from var(--secondary-light) r g b / 0.3) 0%, transparent 30%),
   radial-gradient(circle at 0% 50%, rgb(from var(--accent-light) r g b / 0.2) 0%, transparent 30%),
   radial-gradient(circle at 80% 80%, #A4B2D5 0%, transparent 30%); */
@@ -79,7 +79,14 @@ button{
 
 .wrapper {
   width: 90%;
+  max-width: 1000px;
   margin: 0 auto;
+}
+
+@media screen and (min-width: 1279px){
+  .wrapper{
+    max-width: 1330px;
+  }
 }
 
 /* Open Sans – Regular 400 */

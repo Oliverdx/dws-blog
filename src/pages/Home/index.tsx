@@ -9,23 +9,30 @@ import AppLayout from '@/components/Layout/AppLayout';
 import PostCard from '@/components/PostCard/PostCard';
 import ActionBar from '@/components/ActionBar/ActionBar';
 
+import styles from "./Home.module.css";
+
 import type { Post } from "@/types/Post";
+import SideFilter from '@/components/SideFilter/SideFilter';
 
 const Home = memo(() => {
-  const { posts , loading, error } = useFetchPosts();
+  const { posts, loading, error } = useFetchPosts();
 
   if (error) return <p>{error}</p>;
 
   return (
     <FilterProvider>
       <AppLayout>
-        {loading ? <>Loading...</> : <div className={`wrapper`}
-        style={{display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 10}}>
+        {loading ? <>Loading...</> : <div className={`wrapper ${styles.homeWrapper}`}>
           <ActionBar />
-          {posts?.map((post: Post) => 
-          <Link to={`post/${post.id}`} key={post.id}>
-            <PostCard data={post} />
-          </Link>)}
+          <div className={styles.contentWrapper}>
+            <SideFilter />
+            <div className={styles.postWrapper}>
+            {posts?.map((post: Post) =>
+              <Link to={`post/${post.id}`} key={post.id}>
+                <PostCard data={post} />
+              </Link>)}
+          </div>
+          </div>
         </div>}
       </AppLayout>
     </FilterProvider>
