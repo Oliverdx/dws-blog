@@ -1,7 +1,10 @@
 import { Link } from "react-router-dom";
-import styles from "./NotFound.module.css";
+
 import Button from "@/components/Button/Button";
+
 import ArrowLeftIcon from "@/assets/ArrowLeftIcon";
+
+import styles from "./Notfound.module.css";
 
 const NotFound = () => {
   return (
