@@ -60,13 +60,26 @@ cd <project-folder>
 npm install
 ```
 
-### 6. Run the development server
+### 6. Create a .env File
+
+You need to create a .env file before run the server, for that follow the steps:
+
+1 - Rename the .env-example for .env in the root of the project
+2 - Change the variable for the api URL:
+
+```bash
+VITE_API_URL = ""
+```
+
+
+### 7. Run the development server
+
 
 ```bash
 npm run dev
 ```
 
-### 6. Open the application
+### 8. Open the application
 
 After running the command above, open your browser and access:
 
