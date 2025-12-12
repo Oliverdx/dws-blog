@@ -11,9 +11,11 @@ import SortIcon from "@/assets/SortIcon";
 import DownArrowIcon from "@/assets/DownArrowIcon";
 
 import styles from "./ActionBar.module.css";
+import type { filterItem } from "@/hooks/useFetchFilterList";
 
 const ActionBar = () => {
   const [filter, setFilter] = useState<filterBy | null>(null);
+
   const {
     selectedAuthors,
     selectedCategories,
@@ -36,15 +38,20 @@ const ActionBar = () => {
       setSort('newest');
   }
 
+  const normalizeList = (list: filterItem[]) => {
+    const listOfLabels = list.map(item => item.name);
+    
+    return listOfLabels.join(',');
+  }
+
   return <div className={styles.actionBar}>
     <div className={styles.leftActions}>
       <h2 className={styles.mobileHide}>DWS Blog</h2>
       <Button className={styles.filterBtn} variant="secondary" onClick={() => toggleFilterDropdown('category')}>
-        Category <DownArrowIcon />
+        {selectedCategories.length ? normalizeList(selectedCategories) : "Category"} <DownArrowIcon />
       </Button>
       <Button className={styles.filterBtn} variant="secondary" onClick={() => toggleFilterDropdown('author')}>
-        Author
-        <DownArrowIcon />
+        {selectedAuthors.length ? normalizeList(selectedAuthors) : "Author"} <DownArrowIcon />
       </Button>
       {!!filter && <FilterList
         filterBy={filter}

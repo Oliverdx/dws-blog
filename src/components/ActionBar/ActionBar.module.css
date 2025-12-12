@@ -1,5 +1,6 @@
 .actionBar {
   display: flex;
+  flex-wrap: wrap;
   width: 314px;
   justify-content: space-between;
   align-items: center;
@@ -8,6 +9,7 @@
 
 .leftActions {
   display: flex;
+  flex-wrap: wrap;
   gap: 4px;
 }
 

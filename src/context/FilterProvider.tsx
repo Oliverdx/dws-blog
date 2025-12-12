@@ -1,20 +1,22 @@
 import { useState, useMemo, type ReactNode } from "react";
 import { FilterContext } from "./FilterContext";
+import type { filterItem } from "@/hooks/useFetchFilterList";
+import type { FilterContextValues } from "@/types/FillterContext";
 interface FilterProviderProps {
   children: ReactNode;
 }
 
-const initialFilters = {
-  selectedCategories: [] as string[],
-  selectedAuthors: [] as string[],
-  searchText: null as string | null,
-  sortBy: "newest" as "newest" | "oldest",
+const initialFilters: FilterContextValues = {
+  selectedCategories: [],
+  selectedAuthors: [],
+  searchText: null,
+  sortBy: "newest",
 };
 
 export const FilterProvider = ({ children }: FilterProviderProps) => {
   const [filters, setFilters] = useState(initialFilters);
 
-  const toggleCategory = (category: string) =>
+  const toggleCategory = (category: filterItem) =>
     setFilters(prev => ({
       ...prev,
       selectedCategories: prev.selectedCategories.includes(category)
@@ -22,11 +24,11 @@ export const FilterProvider = ({ children }: FilterProviderProps) => {
         : [...prev.selectedCategories, category],
     }));
 
-  const toggleAuthor = (author: string) =>
+  const toggleAuthor = (author: filterItem) =>
     setFilters(prev => ({
       ...prev,
       selectedAuthors: prev.selectedAuthors.includes(author)
-        ? prev.selectedAuthors.filter(item => item !== author)
+        ? prev.selectedAuthors.filter(item => item.id !== author.id)
         : [...prev.selectedAuthors, author],
     }));
 

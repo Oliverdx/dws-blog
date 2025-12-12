@@ -9,7 +9,7 @@ import styles from './FilterList.module.css';
 import ArrowLeftIcon from '@/assets/ArrowLeftIcon';
 interface FilterListProps {
   filterBy: filterBy,
-  selectedItens: string[],
+  selectedItens: filterItem[],
   closeFilterList: () => void;
 }
 
@@ -32,7 +32,7 @@ const FilterList = ({ filterBy, selectedItens, closeFilterList }: FilterListProp
     toggleCategory
   } = useFilter();
 
-  const selectFilter = (item: string) => {
+  const selectFilter = (item: filterItem) => {
     if (filterBy === "author") {
       toggleAuthor(item);
     } else {
@@ -79,11 +79,11 @@ const FilterList = ({ filterBy, selectedItens, closeFilterList }: FilterListProp
       />
     </div>
 
-    {list.length && list?.map(filterItem =>
+    {list.length && list?.map((filterItem: filterItem) =>
       <button
         key={filterItem.id}
-        onClick={() => selectFilter(filterItem.id)}
-        className={`${styles.dropdownItem} ${selectedItens.find(item => item === filterItem.id) ? styles.selectedItem : null}`}
+        onClick={() => selectFilter(filterItem)}
+        className={`${styles.dropdownItem} ${selectedItens.find(item => item.id === filterItem.id) ? styles.selectedItem : null}`}
       >
         <span>{filterItem.name}</span>
       </button>
