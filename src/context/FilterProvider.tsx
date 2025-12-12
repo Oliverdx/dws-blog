@@ -18,7 +18,7 @@ export const FilterProvider = ({ children }: FilterProviderProps) => {
     setFilters(prev => ({
       ...prev,
       selectedCategories: prev.selectedCategories.includes(category)
-        ? prev.selectedCategories.filter(c => c !== category)
+        ? prev.selectedCategories.filter(item => item !== category)
         : [...prev.selectedCategories, category],
     }));
 
@@ -26,7 +26,7 @@ export const FilterProvider = ({ children }: FilterProviderProps) => {
     setFilters(prev => ({
       ...prev,
       selectedAuthors: prev.selectedAuthors.includes(author)
-        ? prev.selectedAuthors.filter(a => a !== author)
+        ? prev.selectedAuthors.filter(item => item !== author)
         : [...prev.selectedAuthors, author],
     }));
 
