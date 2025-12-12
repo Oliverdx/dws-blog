@@ -48,6 +48,7 @@ const ActionBar = () => {
       </Button>
       {!!filter && <FilterList
         filterBy={filter}
+        closeFilterList={() => setFilter(null)}
         selectedItens={filter === "author" ? selectedAuthors : selectedCategories}
       />}
     </div>
