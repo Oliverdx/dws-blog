@@ -8,11 +8,12 @@ import { useFetchSinglePost } from '@/hooks/useFetchSinglePost';
 import PostCard from '@/components/PostCard/PostCard';
 import Button from '@/components/Button/Button';
 import AppLayout from '@/components/Layout/AppLayout';
+import LoadingPosts from '@/components/LoadingPosts/LoadingPosts';
 
 import ArrowLeftIcon from '@/assets/ArrowLeftIcon';
 
 import styles from "./Post.module.css";
-import LoadingPosts from '@/components/LoadingPosts/LoadingPosts';
+
 
 function PostPage() {
   const { id = "" } = useParams();
@@ -24,7 +25,7 @@ function PostPage() {
 
   return (
     <AppLayout>
-      <div className={styles.postWrapper}>
+      <div className={styles.buttonWrapper}>
         <Button
           onClick={() => navigate(-1)}
           variant="secondary"
@@ -33,10 +34,13 @@ function PostPage() {
           <ArrowLeftIcon />
           Back
         </Button>
+      </div>
+      <div className={styles.postWrapper}>
         {loading ? <LoadingPosts /> :
           <div>
             <div className={styles.postHeader}>
-              <h2>{post?.title}</h2>
+              {/* <h2>{post?.title}</h2> */}
+              <h2>This is the title of the article with two lines</h2>
               <div className={styles.postAuthor}>
                 <img src={post?.author.profilePicture} alt={post?.author.name} />
                 <p>Written by: <b>{post?.author.name}</b>
@@ -55,8 +59,8 @@ function PostPage() {
           articles
         </h2>
         <div className={styles.latestPostList}>
-          {latestPosts?.map(post => 
-          <PostCard key={post.id} data={post} />)}
+          {latestPosts?.map(post =>
+            <PostCard key={post.id} data={post} />)}
         </div>
       </div>}
     </AppLayout>

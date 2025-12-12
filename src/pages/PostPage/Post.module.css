@@ -1,5 +1,6 @@
 .postWrapper,
-.latestPosts {
+.latestPosts,
+.buttonWrapper {
   width: 90%;
   max-width: 1000px;
   margin: 0 auto;
@@ -9,7 +10,7 @@
   display: flex;
   align-items: center;
 
-  svg{
+  svg {
     fill: black;
     width: 20px;
     height: auto;
@@ -83,6 +84,12 @@
   .postWrapper {
     width: 100%;
     max-width: 900px;
+  }
+
+  .buttonWrapper {
+    position: absolute;
+    left: 45%;
+    transform: translate(-50%);
   }
 
   .latestPostTitle:before {
