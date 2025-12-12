@@ -1,13 +1,17 @@
-import Button from '@/components/Button/Button';
-import AppLayout from '@/components/Layout/AppLayout';
-import { useFetchSinglePost } from '@/hooks/useFetchSinglePost';
 import { useNavigate, useParams } from 'react-router-dom';
 
-import styles from "./Post.module.css";
 import formateDate from '@/util/formatDate';
-import ArrowLeftIcon from '@/assets/ArrowLeftIcon';
+
 import { useFetchPosts } from '@/hooks/useFetchPosts';
+import { useFetchSinglePost } from '@/hooks/useFetchSinglePost';
+
 import PostCard from '@/components/PostCard/PostCard';
+import Button from '@/components/Button/Button';
+import AppLayout from '@/components/Layout/AppLayout';
+
+import ArrowLeftIcon from '@/assets/ArrowLeftIcon';
+
+import styles from "./Post.module.css";
 
 function PostPage() {
   const { id = "" } = useParams();

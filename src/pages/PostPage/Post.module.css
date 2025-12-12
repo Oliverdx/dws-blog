@@ -8,6 +8,13 @@
 .backButton {
   display: flex;
   align-items: center;
+
+  svg{
+    fill: black;
+    width: 20px;
+    height: auto;
+    margin-right: 10px;
+  }
 }
 
 .postHeader {
