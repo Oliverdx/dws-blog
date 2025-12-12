@@ -1,0 +1,43 @@
+.backButton{
+  display: flex;
+  align-items: center;
+}
+
+.postHeader{
+  margin-top: 20px;
+}
+
+.postAuthor{
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  gap: 10px;
+
+  img{
+    width: 70px;
+    height: 70px;
+  }
+
+  span{
+    display: block;
+    color: var(--neutral-medium);
+    margin-top: 5px;
+  }
+}
+
+
+.postContent{
+  margin-bottom: 32px;
+}
+
+.postThumbnail{
+  width: 314px;
+  height: 196px;
+  border-radius: 16px;
+  margin: 32px 0;
+}
+
+.latestPosts{
+  display: grid;
+  grid-gap: 15px;
+}

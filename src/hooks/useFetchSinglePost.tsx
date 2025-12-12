@@ -1,10 +1,10 @@
-import { getPosts } from '@/services/getPosts';
+import { getPostById } from '@/services/getPosts';
 import { useState, useEffect } from 'react';
 
 import type { Post } from '@/types/Post';
 
-const useFetchPosts = (qtd?: number) => {
-  const [posts, setPosts] = useState<Post[]>([]);
+const useFetchSinglePost = (id: string) => {
+  const [post, setPost] = useState<Post | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -15,11 +15,8 @@ const useFetchPosts = (qtd?: number) => {
       setLoading(true);
 
       try{
-        const data = await getPosts();
-        if(mounted){
-          const postList = qtd ? data.slice(0, qtd) : data;
-          setPosts(postList);
-        }
+        const data = await getPostById(id);
+        if(mounted) setPost(data);
       }catch{
         if(mounted) setError('Failed to load the posts from API');
       }finally{
@@ -32,15 +29,15 @@ const useFetchPosts = (qtd?: number) => {
     return () => {
       mounted = false;
     }
-  }, []);
+  }, [id]);
 
   return {
-    posts,
+    post,
     loading,
     error
   }
 };
 
 export {
-  useFetchPosts
+  useFetchSinglePost
 }

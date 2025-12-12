@@ -24,6 +24,11 @@
   font-family: "Open Sans", serif;
 }
 
+p{
+  font-size: 0.875rem;
+  line-height: 150%;
+}
+
 a {
   font-weight: 500;
   color: var(--neautral-darkest);
@@ -38,7 +43,7 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
-  color: var(--neautral-darkest);
+  color: var(--neautral-extradark);
   /* background: radial-gradient(circle at 100% 15%, rgb(from var(--secondary-light) r g b / 0.3) 0%, transparent 30%),
   radial-gradient(circle at 0% 50%, rgb(from var(--accent-light) r g b / 0.2) 0%, transparent 30%),
   radial-gradient(circle at 80% 80%, #A4B2D5 0%, transparent 30%); */

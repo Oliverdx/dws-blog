@@ -20,10 +20,8 @@ const ActionBar = memo(() => {
     <div className={styles.rightActions}>
       <b className={styles.mobileHide}>Sort by: </b>
       <Button variant="sort" className={styles.sortButton}>
-        Newest First
-        <span>
-          <SortIcon />
-        </span>
+        <span>Newest First</span>
+        <SortIcon />
       </Button>
     </div>
   </div>

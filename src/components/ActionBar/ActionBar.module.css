@@ -10,6 +10,7 @@
   gap: 4px;
   
   button{
+    font-size: 0.75rem;
     height: 32px;
     padding: 12px 12px 12px 16px;
     box-sizing: border-box;
@@ -23,12 +24,18 @@
 }
 
 .sortButton{
-  height: 10px;
+  background: var(--accent-medium);
+  color: var(--neutral-extralight);
+  border-radius: 32px;
   font-size: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px;
 
   svg{
     height: 15px;
-    color: var(--accent-medium)
+    color: var(--neutral-extralight)
   }
 }
 
