@@ -13,6 +13,7 @@ import styles from "./Home.module.css";
 
 import type { Post } from "@/types/Post";
 import SideFilter from '@/components/SideFilter/SideFilter';
+import LoadingPosts from '@/components/LoadingPosts/LoadingPosts';
 // import useFilter from '@/hooks/useFilter';
 
 const Home = memo(() => {
@@ -32,7 +33,7 @@ const Home = memo(() => {
   return (
     <FilterProvider>
       <AppLayout>
-        {loading ? <>Loading...</> : <div className={`wrapper ${styles.homeWrapper}`}>
+        {loading ?<LoadingPosts /> : <div className={`wrapper ${styles.homeWrapper}`}>
           <ActionBar />
           <div className={styles.contentWrapper}>
             <SideFilter />

@@ -37,11 +37,13 @@
   height: 32px;
   padding: 8px 12px;
   font-size: 0.75rem;
-  background: var(--neutral-extralight);
+  background: var(--neutral-lightest);
   font-family: "Open Sans", sans-serif;
+  transition: ease all 300ms;
 
   &:hover{
     background: var(--secondary-dark);
+    color: var(--neutral-lightest);
   }
 }
 

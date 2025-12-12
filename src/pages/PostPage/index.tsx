@@ -12,6 +12,7 @@ import AppLayout from '@/components/Layout/AppLayout';
 import ArrowLeftIcon from '@/assets/ArrowLeftIcon';
 
 import styles from "./Post.module.css";
+import LoadingPosts from '@/components/LoadingPosts/LoadingPosts';
 
 function PostPage() {
   const { id = "" } = useParams();
@@ -32,7 +33,7 @@ function PostPage() {
           <ArrowLeftIcon />
           Back
         </Button>
-        {loading ? <h1>Loading post...</h1> :
+        {loading ? <LoadingPosts /> :
           <div>
             <div className={styles.postHeader}>
               <h2>{post?.title}</h2>

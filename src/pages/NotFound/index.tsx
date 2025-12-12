@@ -1,13 +1,24 @@
-import AppLayout from '@/components/Layout/AppLayout';
+import { Link } from "react-router-dom";
+import styles from "./NotFound.module.css";
+import Button from "@/components/Button/Button";
+import ArrowLeftIcon from "@/assets/ArrowLeftIcon";
 
-function NotFound() {
-
+const NotFound = () => {
   return (
-    <AppLayout>
-      <h1>404</h1>
-      <h2>Page Not found</h2>
-    </AppLayout>
+    <div className={styles.wrapper}>
+      <h1 className={styles.title}>404</h1>
+      <p className={styles.subtitle}>
+        Oops! The page you are looking for doesn’t exist.
+      </p>
+
+      <Link to="/">
+        <Button variant="primary" className={styles.button}>
+          <ArrowLeftIcon />
+          Back to home
+        </Button>
+      </Link>
+    </div>
   );
-}
+};
 
 export default NotFound;
