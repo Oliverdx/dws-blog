@@ -32,7 +32,7 @@ const useFetchPosts = (qtd?: number) => {
     return () => {
       mounted = false;
     }
-  }, []);
+  }, [qtd]);
 
   return {
     posts,

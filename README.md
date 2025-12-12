@@ -1,73 +1,114 @@
-# React + TypeScript + Vite
+# 📝 React Blog Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is a technical challenge consisting of a **blog application built with React**.  
+The main goal is to demonstrate **clean code**, **good architecture**, **component reusability**, **state management**, and **UI fidelity**.
 
-Currently, two official plugins are available:
+The application allows users to browse blog posts, filter them by category or author, search content, sort results, and view individual post details.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## 🚀 Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **React** (with Vite)
+- **TypeScript**
+- **React Router DOM**
+- **Context API** (state management)
+- **CSS Modules**
+- **ESLint**
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 📁 Project Structure
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+Below is an overview of the project structure and the responsibility of each folder:
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+src/
+├── assets/        # Static assets (svg)
+├── components/    # Reusable UI components (buttons, postCard, loaders, etc.)
+├── context/       # Context API providers and contexts
+├── hooks/         # Custom React hooks (data fetching, logic abstraction)
+├── pages/         # Application pages (Home, Post details, 404)
+├── router/        # Application routing configuration
+├── services/      # API and data-fetching logic
+├── types/         # TypeScript types and interfaces
+├── util/          # Utility/helper functions
+│
+├── index.css      # Global styles and CSS variables
+├── main.tsx       # Application entry point
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## ▶️ How to Run the Project
+
+Follow the steps below to run the project locally:
+
+### 1. Clone the repository
+```bash
+git clone <repository-url>
+````
+
+### 2. Navigate to the project folder
+
+```bash
+cd <project-folder>
+```
+
+### 3. Install dependencies
+
+```bash
+npm install
+```
+
+### 6. Run the development server
+
+```bash
+npm run dev
+```
+
+### 6. Open the application
+
+After running the command above, open your browser and access:
+
+```
+http://localhost:5173
+```
+
+---
+
+## 🧪 Linting
+
+To run ESLint and check for code quality issues:
+
+```bash
+npm run lint
+```
+
+---
+
+## 📦 Build for Production
+
+To generate a production-ready build:
+
+```bash
+npm run build
+```
+
+To preview the build locally:
+
+```bash
+npm run preview
+```
+
+After running the command above, open your browser and access:
+
+```
+http://localhost:4173
+
+---
+
+## 👨‍💻 Author
+
+Developed as part of a technical challenge to demonstrate React and frontend engineering skills.
+
 ```
