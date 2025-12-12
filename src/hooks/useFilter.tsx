@@ -1,4 +1,4 @@
-import { FilterContext } from "@/context/filtercontext";
+import { FilterContext } from "@/context/FilterContext";
 import { useContext } from "react";
 
 const useFilter = () => {

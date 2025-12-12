@@ -2,14 +2,13 @@ import { createContext } from "react";
 import type { FilterContextType } from "@/types/FillterContext";
 
 export const FilterContext = createContext<FilterContextType>({
-  selectedCategory: null,
-  selectedAuthor: null,
+  selectedCategories: [],
+  selectedAuthors: [],
   searchText: "",
   sortBy: "newest",
 
-  setCategory: () => {},
-  setAuthor: () => {},
+  toggleCategory: () => {},
+  toggleAuthor: () => {},
   setSearch: () => {},
-  setSort: () => {},
-  cleanFilters: () => {},
+  setSort: () => {}
 });

@@ -15,8 +15,8 @@ import styles from "./ActionBar.module.css";
 const ActionBar = () => {
   const [filter, setFilter] = useState<filterBy | null>(null);
   const {
-    selectedAuthor,
-    selectedCategory,
+    selectedAuthors,
+    selectedCategories,
     sortBy,
     setSort
   } = useFilter();
@@ -48,7 +48,7 @@ const ActionBar = () => {
       </Button>
       {!!filter && <FilterList
         filterBy={filter}
-        selectedItem={filter === "author" ? selectedAuthor : selectedCategory}
+        selectedItens={filter === "author" ? selectedAuthors : selectedCategories}
       />}
     </div>
     <div className={styles.rightActions}>

@@ -1,4 +1,4 @@
-import { memo } from 'react';
+import { memo, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import { useFetchPosts } from '@/hooks/useFetchPosts';
@@ -13,9 +13,19 @@ import styles from "./Home.module.css";
 
 import type { Post } from "@/types/Post";
 import SideFilter from '@/components/SideFilter/SideFilter';
+// import useFilter from '@/hooks/useFilter';
 
 const Home = memo(() => {
+  const [postList, setPostList] = useState<Post[]>([])
   const { posts, loading, error } = useFetchPosts();
+
+  // const {
+  //   selectedAuthor,
+  // } = useFilter();
+
+  useEffect(() => {
+    setPostList(posts);
+  }, [posts]);
 
   if (error) return <p>{error}</p>;
 
@@ -27,7 +37,7 @@ const Home = memo(() => {
           <div className={styles.contentWrapper}>
             <SideFilter />
             <div className={styles.postWrapper}>
-            {posts?.map((post: Post) =>
+            {postList?.map((post: Post) =>
               <Link to={`post/${post.id}`} key={post.id}>
                 <PostCard data={post} />
               </Link>)}

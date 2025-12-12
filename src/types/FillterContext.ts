@@ -1,14 +1,13 @@
 export interface FilterContextValues {
-    selectedCategory: string | null,
-    selectedAuthor: string | null,
-    searchText: string | null,
-    sortBy: "newest" | "oldest";
+  selectedCategories: string[];
+  selectedAuthors: string[];
+  searchText: string | null;
+  sortBy: "newest" | "oldest";
 }
 
 export interface FilterContextType extends FilterContextValues {
-  setCategory: (category: string | null) => void,
-  setAuthor: (author: string | null) => void,
-  setSearch: (search: string) => void,
-  setSort: (sort: "newest" | "oldest") => void,
-  cleanFilters: () => void;
+  toggleCategory: (category: string) => void;
+  toggleAuthor: (author: string) => void;
+  setSearch: (text: string | null) => void;
+  setSort: (sort: "newest" | "oldest") => void;
 }

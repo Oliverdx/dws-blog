@@ -8,26 +8,31 @@ import useFilter from '@/hooks/useFilter';
 import styles from './FilterList.module.css';
 interface FilterListProps {
   filterBy: filterBy,
-  selectedItem: string | null
+  selectedItens: string[]
 }
 
-const FilterList = memo(({ filterBy, selectedItem }: FilterListProps) => {
-
-  const { filterList, loadingFilterList, errorFilterList } = useFetchFilterList(filterBy);
+const FilterList = memo(({ filterBy, selectedItens }: FilterListProps) => {
 
   const {
-    setAuthor,
-    setCategory
+    filterList,
+    loadingFilterList,
+    errorFilterList
+  } = useFetchFilterList(filterBy);
+
+  const {
+    toggleAuthor,
+    toggleCategory
   } = useFilter();
 
   const selectFilter = (item: string) => {
-    console.log('item', item);
+    console.log("item", item);
 
-    if(filterBy === "author")
-      setAuthor(item)
-
-    setCategory(item);
-  }
+    if (filterBy === "author") {
+      toggleAuthor(item);
+    } else {
+      toggleCategory(item);
+    }
+  };
 
   if (loadingFilterList)
     return <div className={styles.dropdownWrapper}>
@@ -44,7 +49,7 @@ const FilterList = memo(({ filterBy, selectedItem }: FilterListProps) => {
       <button
         key={filterItem.id}
         onClick={() => selectFilter(filterItem.id)}
-        className={`${styles.dropdownItem} ${selectedItem === filterItem.id ? styles.selectedItem : null}`}
+        className={`${styles.dropdownItem} ${selectedItens.find(item => item === filterItem.id) ? styles.selectedItem : null}`}
       >
         <span>{filterItem.name}</span>
       </button>

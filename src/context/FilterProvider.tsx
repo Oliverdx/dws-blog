@@ -1,32 +1,36 @@
-import type { FilterContextValues } from "@/types/FillterContext";
-import { useMemo, useState, type ReactNode } from "react";
-import { FilterContext } from "./filtercontext";
-
+import { useState, useMemo, type ReactNode } from "react";
+import { FilterContext } from "./FilterContext";
 interface FilterProviderProps {
   children: ReactNode;
 }
 
-const initialFilters: FilterContextValues = {
-  selectedCategory: null,
-  selectedAuthor: null,
-  searchText: null,
-  sortBy: "newest",
-}
+const initialFilters = {
+  selectedCategories: [] as string[],
+  selectedAuthors: [] as string[],
+  searchText: null as string | null,
+  sortBy: "newest" as "newest" | "oldest",
+};
 
 export const FilterProvider = ({ children }: FilterProviderProps) => {
-  const [filters, setFilters] = useState<FilterContextValues>(initialFilters);
+  const [filters, setFilters] = useState(initialFilters);
 
-  const cleanFilters = () => {
-    setFilters(initialFilters);
-  }
+  const toggleCategory = (category: string) =>
+    setFilters(prev => ({
+      ...prev,
+      selectedCategories: prev.selectedCategories.includes(category)
+        ? prev.selectedCategories.filter(c => c !== category)
+        : [...prev.selectedCategories, category],
+    }));
 
-  const setCategory = (category: string | null) =>
-    setFilters(prev => ({ ...prev, selectedCategory: category }));
+  const toggleAuthor = (author: string) =>
+    setFilters(prev => ({
+      ...prev,
+      selectedAuthors: prev.selectedAuthors.includes(author)
+        ? prev.selectedAuthors.filter(a => a !== author)
+        : [...prev.selectedAuthors, author],
+    }));
 
-  const setAuthor = (author: string | null) =>
-    setFilters(prev => ({ ...prev, selectedAuthor: author }));
-
-  const setSearch = (text: string) =>
+  const setSearch = (text: string | null) =>
     setFilters(prev => ({ ...prev, searchText: text }));
 
   const setSort = (sort: "newest" | "oldest") =>
@@ -35,11 +39,10 @@ export const FilterProvider = ({ children }: FilterProviderProps) => {
   const value = useMemo(
     () => ({
       ...filters,
-      setCategory,
-      setAuthor,
+      toggleCategory,
+      toggleAuthor,
       setSearch,
-      setSort,
-      cleanFilters,
+      setSort
     }),
     [filters]
   );
@@ -49,5 +52,4 @@ export const FilterProvider = ({ children }: FilterProviderProps) => {
       {children}
     </FilterContext.Provider>
   );
-
-}
+};
