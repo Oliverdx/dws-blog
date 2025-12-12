@@ -118,7 +118,7 @@ After running the command above, open your browser and access:
 ```
 http://localhost:4173
 
----
+````
 
 ## 👨‍💻 Author
 
