@@ -1,32 +1,53 @@
-import styles from './FilterList.module.css';
-import { Link } from "react-router-dom";
-import useFetchFilterList from "@/hooks/useFetchFilterList";
-import type { filterBy } from "@/services/getFilterList";
 import { memo } from 'react';
 
+import useFetchFilterList from "@/hooks/useFetchFilterList";
+import type { filterBy } from "@/services/getFilterList";
+
+import useFilter from '@/hooks/useFilter';
+
+import styles from './FilterList.module.css';
 interface FilterListProps {
-  filterBy: filterBy
+  filterBy: filterBy,
+  selectedItem: string | null
 }
 
-const FilterList = memo(({filterBy}: FilterListProps) => {
-  
-  const {filterList, loadingFilterList, errorFilterList} = useFetchFilterList(filterBy);
+const FilterList = memo(({ filterBy, selectedItem }: FilterListProps) => {
 
-  if(loadingFilterList)
+  const { filterList, loadingFilterList, errorFilterList } = useFetchFilterList(filterBy);
+
+  const {
+    setAuthor,
+    setCategory
+  } = useFilter();
+
+  const selectFilter = (item: string) => {
+    console.log('item', item);
+
+    if(filterBy === "author")
+      setAuthor(item)
+
+    setCategory(item);
+  }
+
+  if (loadingFilterList)
     return <div className={styles.dropdownWrapper}>
       Loading the list of {filterBy}...
     </div>;
 
-    if(errorFilterList)
+  if (errorFilterList)
     return <div className={styles.dropdownWrapper}>
       Error when trying to get the {filterBy} list
     </div>;
 
   return <div className={styles.dropdownWrapper}>
-    {filterList.length && filterList?.map(filterItem => 
-      <Link key={filterItem.id} to={`?${filterBy}=${filterItem.name}`}>
-        <span className={styles.dropdownItem}>{filterItem.name}</span>
-      </Link>
+    {filterList.length && filterList?.map(filterItem =>
+      <button
+        key={filterItem.id}
+        onClick={() => selectFilter(filterItem.id)}
+        className={`${styles.dropdownItem} ${selectedItem === filterItem.id ? styles.selectedItem : null}`}
+      >
+        <span>{filterItem.name}</span>
+      </button>
     )}
   </div>
 });

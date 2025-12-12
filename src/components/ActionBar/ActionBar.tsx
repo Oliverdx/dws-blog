@@ -1,15 +1,22 @@
-import { memo, useState } from "react";
-import Button from "../Button/Button";
+import { useState } from "react";
 
-import styles from "./ActionBar.module.css";
+import type { filterBy } from "@/services/getFilterList";
+
+import FilterList from "@/components/FilterList/FilterList";
+import Button from "@/components/Button/Button";
+
 import SortIcon from "@/assets/SortIcon";
 import DownArrowIcon from "@/assets/DownArrowIcon";
 
-import FilterList from "@/components/FilterList/FilterList";
-import type { filterBy } from "@/services/getFilterList";
+import styles from "./ActionBar.module.css";
+import useFilter from "@/hooks/useFilter";
 
-const ActionBar = memo(() => {
+const ActionBar = () => {
   const [filter, setFilter] = useState<filterBy | null>(null);
+  const {
+    selectedAuthor,
+    selectedCategory
+  } = useFilter();
 
   const toggleFilterDropdown = (type: filterBy) => {
     if (filter && filter === type)
@@ -21,14 +28,17 @@ const ActionBar = memo(() => {
   return <div className={styles.actionBar}>
     <div className={styles.leftActions}>
       <h2 className={styles.mobileHide}>DWS Blog</h2>
-      <Button variant="secondary" onClick={() => toggleFilterDropdown('category')}>
+      <Button className={styles.filterBtn} variant="secondary" onClick={() => toggleFilterDropdown('category')}>
         Category <DownArrowIcon />
       </Button>
-      <Button variant="secondary" onClick={() => toggleFilterDropdown('author')}>
+      <Button className={styles.filterBtn} variant="secondary" onClick={() => toggleFilterDropdown('author')}>
         Author
         <DownArrowIcon />
       </Button>
-      {!!filter && <FilterList filterBy={filter} />}
+      {!!filter && <FilterList
+        filterBy={filter}
+        selectedItem={filter === "author" ? selectedAuthor : selectedCategory}
+      />}
     </div>
     <div className={styles.rightActions}>
       <b className={styles.mobileHide}>Sort by: </b>
@@ -38,6 +48,6 @@ const ActionBar = memo(() => {
       </Button>
     </div>
   </div>
-});
+};
 
 export default ActionBar;
